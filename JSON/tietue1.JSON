@@ -1,0 +1,8 @@
+{
+    "yritys":"Tietue", "yhteystiedot" :{"osoite" : "Ratapihantie 13, Helsinki", 
+    "puhelin" : "123 456 789", "email" : "abc@defg.com"},
+    "tuotteet" :["makeat kahvileivät", "suolaiset piiraat", "erikoiskahvit"], 
+    "henkilökunta":[{"nimi": "Mikko Mallikas", "titteli":"toimitusjohtaja"},
+                    {"nimi": "Juusto Kakku", "titteli":"kondiittori"},
+                    {"nimi": "Jää Kahvi", "titteli":"barista"}]
+}
