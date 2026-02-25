@@ -92,13 +92,17 @@
 
                 //Näytä käännä-nappi
                 document.getElementById("kaannaBtn").style.display = "inline";
+
+                //tyhjennä
+                document.getElementById("tiedot").innerHTML = "";
             }
             }
 
+            //selkä ja ominaisuudet funktio
             function kaanna() {
                 if (!currentPokemon)return;
                 
-                //selkä
+                //selkä kuva
                 let backurl = currentPokemon.sprites.back_default;
                 document.getElementById("kuva2").innerHTML = "<img src=" + backurl + ">";
 
@@ -108,7 +112,7 @@
 
                 //3 ominaisuutta
                 document.getElementById("tiedot").innerHTML =
-                "<p><b>Tyypit:</b> " + types + "</p>" +
+                "<p><b>Tyyppi:</b> " + types + "</p>" +
                 "<p><b>Pituus:</b> " + currentPokemon.height + "</p>" +
                 "<p><b>Paino:</b> " + currentPokemon.weight + "</p>";
             }
