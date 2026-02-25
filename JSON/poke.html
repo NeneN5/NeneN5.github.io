@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <!--Navbar-->
+     <!--Navbar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
 
@@ -36,61 +36,56 @@
       </ul>
     </div>
      </div>
-    </nav>    
+    </nav>  
 
-    <!--Otsikko-->
-  
+    <!--Hakulaatikko ja paikka mihin pokemonin kuva laitetaan-->
+    <h1>Pokemon haku</h1>
+    <p>
+    <input type="text" id="pokemon" placeholder="Kirjoita pokemonin nimi">
+    <button onclick="poke()">Hae</button>
+    <button onclick="poke()">Käännä</button><br>
+    <div id="nimi">Kirjoita laatikkoon Pokemonin nimi</div>
+    <p id="kuva2"></p>
+    </p>
+
     <main>
-        <div id="vastaus"></div>
-
         <script>
-            fetch('tietue.JSON')
+            //Tallennetaan annettu Pokn nimi muuttujaan pokeName, muutetaan se samalla pieniksi kirjaimiksi
+            const pokeName = document.getElementById("pokemonName").value.toLowerCase();
+            
+            //Tallenbnetaan myös nimi talteen muuttujaan name
+            const name = document.getElementById("pokemonName").value;
 
+            //fetch ja kutsutaan funktiota pokekuva
+            fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+
+            //JSON-muoto
             .then(function (response) {
                 return response.json();
             })
 
+            //JSON-muodon käsittely ja kutsutaan funktiota kerro() ja välitetään JSON-vastaus
             .then(function (responseJson) {
-                kerro(responseJson)
+                pokekuva(responseJson)
             })
 
+            //Virheenkäsittely
             .catch(function (error) {
-                document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+                document.getElementById("nimi").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
             })
 
-            //funktio joka hakee tiedon objektista ja kirjoittaa ne sivulle
 
-            function kerro(obj) {
-                let tiedot = "<h1>" + obj.otsikko + "</h><br>"
-                    + obj.kuvaus + "<br><hr>"
-                //kuvan määritteleminen
-                    + "<p><img src=" + obj.kuva + "></p>"
-
-                //keskitetään teksti center-tagillä keskelle
-                    + "<center><h3>" + "Opintojakso" + "</h3>" + "Nimi: " + obj.opintojakso.nimi + "<br>"
-                    + "Tunnus: " + obj.opintojakso.tunnus + "<br>"
-                    + "Opintopisteet: " + obj.opintojakso.opintopisteet + "<br></center>";
-
-                //lisätään väliotsikko
-                    tiedot += "</p><h3> Aiheet </h3>";
-
-                //for-silmukka, joka luo myös linkit sivulle
-                for (var i = 0; i < obj.tekniikat.length; i++) {
-                    tiedot += "<b>Aihe: " + obj.tekniikat[i].aihe + "</b>";
-                    tiedot += " <a href=" + obj.tekniikat[i].linkki + ">" + obj.tekniikat[i].linkki + "</a>" + "<br>";
-                }
-                tiedot += "</p>";
-
-                document.getElementById("vastaus").innerHTML = tiedot;
+            //Määritellään funktio pokekuva(obj)
+            function pokekuva(obj) {
+                //Tallennetaan muuttujan linkki jossa pokekuva
+                let pokeurl = obj.sprites.front_default;
+                //kirjoitetaan kuva, nimi sivulla ja tyhjennetään hakukenttä
+                document.getElementById("kuva2").innerHTML = "<img src=" + pokeurl + ">";
+                document.getElementById("nimi").innerHTML = "<b>" + name + "</b>";
+                document.getElementById("pokemonName").value = "";
             }
         </script>
     </main>
-    <!--img linkki-->
-
-    <!--img linkki-->
-
-
-
 
 </body>
 </html>
