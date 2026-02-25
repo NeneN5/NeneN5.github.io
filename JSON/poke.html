@@ -41,15 +41,19 @@
     <!--Hakulaatikko ja paikka mihin pokemonin kuva laitetaan-->
     <h1>Pokemon haku</h1>
     <p>
-    <input type="text" id="pokemon" placeholder="Kirjoita pokemonin nimi">
+    <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
     <button onclick="poke()">Hae</button>
-    <button onclick="poke()">Käännä</button><br>
+    <button onclick="kaanna()" id="kaannaBtn" style="display: none;">Käännä</button><br>
     <div id="nimi">Kirjoita laatikkoon Pokemonin nimi</div>
     <p id="kuva2"></p>
+    <p id="tiedot"></p>
+
+   
     </p>
 
     <main>
         <script>
+            function poke() {
             //Tallennetaan annettu Pokn nimi muuttujaan pokeName, muutetaan se samalla pieniksi kirjaimiksi
             const pokeName = document.getElementById("pokemonName").value.toLowerCase();
             
@@ -78,12 +82,37 @@
             //Määritellään funktio pokekuva(obj)
             function pokekuva(obj) {
                 //Tallennetaan muuttujan linkki jossa pokekuva
+                currentPokemon = obj; 
+
                 let pokeurl = obj.sprites.front_default;
                 //kirjoitetaan kuva, nimi sivulla ja tyhjennetään hakukenttä
                 document.getElementById("kuva2").innerHTML = "<img src=" + pokeurl + ">";
                 document.getElementById("nimi").innerHTML = "<b>" + name + "</b>";
                 document.getElementById("pokemonName").value = "";
+
+                //Näytä käännä-nappi
+                document.getElementById("kaannaBtn").style.display = "inline";
             }
+            }
+
+            function kaanna() {
+                if (!currentPokemon)return;
+                
+                //selkä
+                let backurl = currentPokemon.sprites.back_default;
+                document.getElementById("kuva2").innerHTML = "<img src=" + backurl + ">";
+
+                let types = currentPokemon.types
+                .map(t=> t.type.name)
+                .join(", ");
+
+                //3 ominaisuutta
+                document.getElementById("tiedot").innerHTML =
+                "<p><b>Tyypit:</b> " + types + "</p>" +
+                "<p><b>Pituus:</b> " + currentPokemon.height + "</p>" +
+                "<p><b>Paino:</b> " + currentPokemon.weight + "</p>";
+            }
+
         </script>
     </main>
 
