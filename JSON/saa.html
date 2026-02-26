@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    
      <!--Navbar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -26,6 +26,7 @@
         <li class="nav-item">
           <a class="nav-link" href="toteutus.html">Tehtävä 1 OSA II</a>
         </li>
+        <!--Pokehaku osa 1 ja 2-->
         <li class="nav-item">
           <a class="nav-link" href="poke.html">Poke haku (Tehtävä 2 osat I & II)</a>
         </li>
@@ -35,39 +36,37 @@
       </ul>
     </div>
      </div>
-    </nav> 
+    </nav>
+
+    <h1>Sää Helsingissä</h1>
+    <div id="vastaus"></div>
+    <div id="weatherIcon"></div>
 
 
-      <div id="vastaus"></div>
     <main>
+      <script>
+        fetch('https://api.openweathermap.org/data/2.5/weather?id=658225&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric')
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (responseJson) {
+          kerro(responseJson)
+        })
+        .catch(function (error) {
+          document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+        })
 
+        function kerro(json) {
+          document.getElementById("vastaus").innerHTML = "<p>Sää Helsingissä: <br>" + json.weather[0].description + "</p>" +
+          "<p>Lämpötila: <br>" + json.main.temp + "°C</p>" +
+          "<p>Tuulen nopeus: <br>" + json.wind.speed + " m/s</p>" +
+          "<img src='https://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png' alt='Weather Icon'>"
+        }
 
-        <script>
-            fetch('toteutus.JSON')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (responseJson) {
-                kerro(responseJson)
-            })
-
-            .catch(function (error) {
-                document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-            })
-
-                function kerro(json) {
-                    document.getElementById("vastaus").innerHTML = "<h1>" + json.otsikko + "</h1>" +
-                    "<p>" + json.osallistujat.lukumaara + "</p>" +
-                    "<p>" + json.osallistujat.nimet + "</p>" +
-                    "<p>" + json.toteutus.kesto + "</p>" +
-                    "<p>" + json.toteutus.kesto_viikkoina + "</p>" +
-                    
-                    //kuva
-                    "<p><img src=" + json.kuva + "></p>";
-
-                }
-        </script>
+      </script>
     </main>
-     
+    
+
+
 </body>
 </html>
