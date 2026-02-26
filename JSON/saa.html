@@ -39,12 +39,15 @@
     </nav>
 
     <h1>Sää Helsingissä</h1>
+    <div id="aika"></div>
     <div id="vastaus"></div>
-    <div id="weatherIcon"></div>
+    
+    
 
 
     <main>
       <script>
+        //Haetaan säädata
         fetch('https://api.openweathermap.org/data/2.5/weather?id=658225&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric')
         .then(function (response) {
           return response.json();
@@ -55,6 +58,21 @@
         .catch(function (error) {
           document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
         })
+
+        //Kellonaika Helsingissä
+        let aikaMs = Date.now();
+        let helsinkiTime = new Date(aikaMs);
+
+        let hours = helsinkiTime.getHours();
+        let minutes = helsinkiTime.getMinutes();
+
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+
+        document.getElementById("aika").innerHTML = "<p>Sää kello " + hours + ":" + minutes + "</p>";
+
+
 
         function kerro(json) {
           document.getElementById("vastaus").innerHTML = "<p>Sää Helsingissä: <br>" + json.weather[0].description + "</p>" +
