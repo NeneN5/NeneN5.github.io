@@ -1,0 +1,67 @@
+
+/*Bady*/
+
+/*Navbar*/
+.container-fluid {
+    background-color: #45e472ac;
+}
+
+/*main*/
+main {
+    
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 20px;
+    
+    
+
+    /*etusivu*/
+    /*otsikko ja kuvaus*/
+    .kuvaus {
+        font-size: 16px
+    }
+    /*img*/
+    #vastaus img {
+        width: 100%;
+        height: auto;
+
+    }
+    
+    .opintojakso {
+        font-size: 16px;
+    }
+
+
+    /*Tehtävä 1 osa 2*/
+    .box {
+        background-color: #cbd1cdac;
+        border-radius: 0px;
+        padding: 20px;
+        max-width: 600px;
+        font-size: 25px;
+        
+    
+        /*kuva*/
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    /*Tehtävä 2 osat I & II*/
+    .kuva2 {
+        width: 200px;
+        height: auto;
+    }
+
+    .saa-tiedot {
+        max-width: 400px;
+        padding: 20px;
+        border-color: #737c75ac;
+        border-style: solid;
+        border-width: 1px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+    }
+
+}

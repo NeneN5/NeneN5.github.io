@@ -5,12 +5,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Etusivu</title>
 </head>
 
 <body>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,14 +61,14 @@
 
             function kerro(obj) {
                 let tiedot = "<h1>" + obj.otsikko + "</h><br>"
-                    + obj.kuvaus + "<br><hr>"
+                    + "<br><p class='kuvaus'>" + obj.kuvaus + "</p><hr>"
                 //kuvan määritteleminen
                     + "<p><img src=" + obj.kuva + "></p>"
 
                 //keskitetään teksti center-tagillä keskelle
-                    + "<center><h3>" + "Opintojakso" + "</h3>" + "Nimi: " + obj.opintojakso.nimi + "<br>"
+                    + "<center><h3>" + "Opintojakso" + "</h3>" + "<p class='opintojakso'>Nimi: " + obj.opintojakso.nimi + "<br>"
                     + "Tunnus: " + obj.opintojakso.tunnus + "<br>"
-                    + "Opintopisteet: " + obj.opintojakso.opintopisteet + "<br></center>";
+                    + "Opintopisteet: " + obj.opintojakso.opintopisteet + "</p><br></center>";
 
                 //lisätään väliotsikko
                     tiedot += "</p><h3> Aiheet </h3>";
