@@ -15,7 +15,7 @@ main {
     
     
 
-    /*etusivu*/
+    /*etusivu ALKAA*/
     /*otsikko ja kuvaus*/
     .kuvaus {
         font-size: 16px
@@ -31,8 +31,9 @@ main {
         font-size: 16px;
     }
 
+    /*etusivu LOPPUU*/
 
-    /*Tehtävä 1 osa 2*/
+    /*Tehtävä 1 osa 2 ALKAA*/
     .box {
         background-color: #cbd1cdac;
         border-radius: 0px;
@@ -48,12 +49,10 @@ main {
         }
     }
 
-    /*Tehtävä 2 osat I & II*/
-    .kuva2 {
-        width: 200px;
-        height: auto;
-    }
+    /*Tehtävä 1 osa 2 LOPPUU*/
 
+    
+    /*Tehtävä 3 ALKAA*/
     .saa-tiedot {
         max-width: 400px;
         padding: 20px;
@@ -64,4 +63,5 @@ main {
         font-size: 24px;
     }
 
+    /*Tehtävä 3 LOPPUU*/
 }

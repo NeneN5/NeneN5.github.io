@@ -40,13 +40,15 @@
     </nav>
 
     
-    
-    
-
 
     <main>
+
+      <!--Säädata laatikossa-->
       <div class="saa-tiedot">
+
       <h1><b>Sää Helsingissä</b></h1>
+
+      <!--kellonaika ja tiedot-->
       <div id="aika"></div>
       <div id="tieto"></div>
      </div>
@@ -78,7 +80,7 @@
         document.getElementById("aika").innerHTML = "<p>Sää kello " + hours + ":" + minutes + "</p>";
 
 
-
+        //Funktio joka hakee tiedot objektista ja kirjoittaa ne sivulle
         function kerro(json) {
           document.getElementById("tieto").innerHTML = "<b><p>Sää: <br>" + json.weather[0].description + "</p>" +
           "<p>Lämpötila: <br>" + json.main.temp + "°C</p>" +

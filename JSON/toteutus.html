@@ -41,6 +41,7 @@
 
       
     <main>
+      <!--laatikko sisällölle + sisältö-->
       <div class="box">
         <div id="toteutus"></div>
       </div>
@@ -58,6 +59,7 @@
                 document.getElementById("toteutus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
             })
 
+            //sisältöä hakeva funktio, joka hakee tiedot objektista ja kirjoittaa ne sivulle
                 function kerro(json) {
                     document.getElementById("toteutus").innerHTML = "<h1><b>" + json.otsikko + "</b></h1><br>" +
                     "<p>" + json.osallistujat.lukumaara + "</p>" +
