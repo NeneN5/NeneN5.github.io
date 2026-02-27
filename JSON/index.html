@@ -60,13 +60,13 @@
             //funktio joka hakee tiedon objektista ja kirjoittaa ne sivulle
 
             function kerro(obj) {
-                let tiedot = "<h1>" + obj.otsikko + "</h><br>"
+                let tiedot = "<h1>" + obj.otsikko + "</h1><br>"
                     + "<br><p class='kuvaus'>" + obj.kuvaus + "</p><hr>"
                 //kuvan määritteleminen
                     + "<p><img src=" + obj.kuva + "></p>"
 
                 //keskitetään teksti center-tagillä keskelle
-                    + "<center><h3>" + "Opintojakso" + "</h3>" + "<p class='opintojakso'>Nimi: " + obj.opintojakso.nimi + "<br>"
+                    + "<center><h2>" + "Opintojakso" + "</h2>" + "<p class='opintojakso'>Nimi: " + obj.opintojakso.nimi + "<br>"
                     + "Tunnus: " + obj.opintojakso.tunnus + "<br>"
                     + "Opintopisteet: " + obj.opintojakso.opintopisteet + "</p><br></center>";
 
