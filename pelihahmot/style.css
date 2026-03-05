@@ -1,5 +1,38 @@
-.container-sm {
-    border: 3px solid #e02929;
-    margin: 50px auto; /* keskittää laatikon vaakasuunnassa ja antaa yläreunalle tilaa */
-    padding: 20px; 
+
+
+.hero{
+  position: relative;
+  text-align: center;
+}
+
+.hero img{
+  width: 100%;
+  height: auto;
+}
+
+.hero-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.card-img-top {
+  max-height: 250px;
+  min-height: 250px;
+  width: 100%;
+  object-fit:contain;
+  padding:10px;
+}
+    /* lisää tilaa kuvan yläpuolelle */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
