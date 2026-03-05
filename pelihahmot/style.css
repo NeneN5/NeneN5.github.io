@@ -1,0 +1,7 @@
+.container-sm {
+    border: 3px solid #e02929;
+    border-radius: 5px;
+    width: 800px;      /* kiinteä leveys */
+    margin: 50px auto; /* keskittää laatikon vaakasuunnassa ja antaa yläreunalle tilaa */
+    padding: 20px; 
+}
