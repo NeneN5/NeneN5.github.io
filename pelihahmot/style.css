@@ -42,23 +42,37 @@ body
     margin-right: auto;
 }
 
-
-.yoshi {
-    border: 4px solid rgb(230, 38, 38);
+.piplup {
+    border: 4px solid rgb(38, 153, 230);
 }
 
-.matt {
-    border: 4px solid rgb(255, 149, 0);
+.zorua {
+    border: 4px solid #784687;
 }
 
-.isabelle {
-    border: 4px solid rgb(251, 129, 160);
+.emolga {
+    border: 4px solid rgb(248, 230, 66);
 }
 
-.rosalina {
-    border: 4px solid rgb(248, 248, 93);
+.gothorita {
+    border: 4px solid rgb(222, 106, 186);
 }
 
-.wiggler {
-    border: 4px solid rgb(193, 49, 119);
+.deerling {
+    border: 4px solid rgb(55, 188, 75);
+}
+
+.haku{
+    background-color: rgb(176, 218, 255);
+    max-width: 800px;
+    padding: 20px;
+    padding-left: 30px;
+    ;
+}
+
+.lista{
+    max-width: 800px;
+    padding: 20px;
+    padding-left: 30px;
+    justify-content: center;
 }
