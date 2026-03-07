@@ -16,7 +16,7 @@
 <body>
 
   <!-- Navbar content -->
-  <nav class="navbar navbar-expand-md bg-body-tertiary">
+  <nav class="navbar navbar-expand-md sticky-top bg-body-tertiary">
     <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,13 +24,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Hahmot</a>
+          <a class="nav-link active" aria-current="page" href="index.html">Suosikit</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="languages.html">Pelit</a>
+          <a class="nav-link" href="#haku">Hae Pokemonia</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="subs.html">Hae hahmoja</a>
+          <a class="nav-link" href="#random">Satunnainen Pokémon</a>
         </li>
       </ul>
     </div>
@@ -48,9 +48,9 @@
 
     <!--piplup-->
   <div class="container-fluid px-5">
-    <div class="row justify-content-center">
+    <div class="d-flex flex-wrap justify-content-center gap-4">
     
-    <div class="col-lg-2 mb-4">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
     <div class="card piplup" style=" margin: 20px;">
       <img src="https://static.wikia.nocookie.net/pokemon/images/0/0b/0393Piplup_DP_anime.png/revision/latest?cb=20150109223921" class="card-img-top" alt="Piplup">
       <div class="card-body">
@@ -71,12 +71,12 @@
 
     <!--zorua-->
 
-    <div class="col-lg-2 mb-4">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
      <div class="card zorua" style=" margin: 20px;">
       <img src="https://static.wikia.nocookie.net/pokemon/images/0/0d/0570Zorua.png/revision/latest?cb=20260223171052" class="card-img-top" alt="Zorua">
       <div class="card-body">
         <h5 class="card-title">Zorua</h5>
-        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae doloribus sunt inventore impedit, laborum earum sint. Perspiciatis voluptatum, maiores inventore vel recusandae, expedita eveniet iure nulla harum nesciunt, cumque totam?</p>
+        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae doloribus sunt inventore impedit, laborum earum sint. Perspiciatis voluptatum, maiores inventore vel recusandae, expedita eveniet iure nulla harum nesciunt</p>
       
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Tyyppi: tumma</li>
@@ -88,12 +88,12 @@
   </div>
 
     <!-- emolga -->
-    <div class="col-lg-2 mb-4">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
      <div class="card emolga" style=" margin: 20px;">
       <img src="https://static.wikia.nocookie.net/pokemon/images/9/96/0587Emolga.png/revision/latest?cb=20260223172753" class="card-img-top" alt="Emolga">
       <div class="card-body">
         <h5 class="card-title">Emolga</h5>
-        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis deserunt autem, labore culpa temporibus saepe, omnis maiores, provident ad impedit sunt rerum corporis harum vero.io suscipit delectus esse repellendus non ipsum id.</p>
+        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis deserunt autem, labore culpa temporibus saepe, omnis maiores, provident ad impedit sunt rerum corporis harum vero.io suscipit delectus esse repellendus non</p>
       
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Tyyppi: sähkö, lento</li>
@@ -108,7 +108,7 @@
 
 
     <!--gothorita-->
-      <div class="col-lg-2 mb-4">
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
       <div class="card gothorita" style=" margin: 20px;">
       <img src="https://static.wikia.nocookie.net/pokemon/images/2/26/0575Gothorita.png/revision/latest?cb=20260223172057" class="card-img-top" alt="Rosalina">
       <div class="card-body">
@@ -128,7 +128,7 @@
 
 
     <!--Deerling-->
-      <div class="col-lg-2 mb-4">
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
     <div class="card deerling" style="margin: 20px;">
       <img src="https://static.wikia.nocookie.net/pokemon/images/c/c9/0585Deerling.png/revision/latest?cb=20260223172515" class="card-img-top" alt="Rosalina">
       <div class="card-body">
@@ -150,7 +150,7 @@
  <!--lempi peli-->
   <main>
 
-    <div class="container mt-4">
+    <div id="haku" class="container mt-4">
       <div class="card haku p-4">
       <div class="row" id="pokemonResults"></div>
       <h2>Hae Pokemonia</h2>
@@ -242,11 +242,15 @@
                 //poketiedot
                  let types = obj.types.map(t=> t.type.name).join(", ");
 
+
+                //muutetaan pituus metreiksi ja paino kiloiksi
+                  obj.height_m = obj.height / 10;
+                  obj.weight_kg = obj.weight / 10;
                 //3 ominaisuutta
                 document.getElementById("tiedot").innerHTML =
                 "<p><b>Tyyppi:</b> " + types + "</p>" +
-                "<p><b>Pituus:</b> " + obj.height + "</p>" +
-                "<p><b>Paino:</b> " + obj.weight + "</p>";
+                "<p><b>Pituus:</b> " + obj.height_m + " m</p>" +
+                "<p><b>Paino:</b> " + obj.weight_kg + " kg</p>";
 
 
                 // Tyhjennä hakukenttä
@@ -256,10 +260,53 @@
 
         </script> 
 
-    
   </main>
 
  </div>
+
+ <!--random pokemon-->
+ <section id="random" class="my-5 text-center">
+  <h2>Random Pokémon</h2>
+  <button class="btn btn-primary mb-3" onclick="randomPokemon()">Arvo Pokémon</button>
+
+  <!-- Tähän ilmestyy satunnainen Pokémon -->
+  <div id="randomCard" class="d-flex justify-content-center flex-wrap gap-4"></div>
+</section>
+
+  <script>
+function randomPokemon() {
+  // Arvotaan Pokémon numero 1–151
+  let num = Math.floor(Math.random() * 151) + 1;
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
+    .then(res => res.json())
+    .then(data => {
+      // Luodaan kortti
+      let cardHTML = `
+        <div class="card" style="width: 18rem;">
+          <img src="${data.sprites.front_default}" class="card-img-top" alt="${data.name}">
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">${data.name}</h5>
+            <p><b>Tyyppi:</b> ${data.types.map(t => t.type.name).join(", ")}</p>
+            <p><b>Pituus:</b> ${data.height / 10} m</p>
+            <p><b>Paino:</b> ${data.weight / 10} kg</p>
+          </div>
+        </div>
+      `;
+
+      // Näytetään kortti divissä
+      document.getElementById("randomCard").innerHTML = cardHTML;
+    })
+    .catch(err => {
+      document.getElementById("randomCard").innerHTML = "<p>Pokémonia ei voitu hakea</p>";
+      console.error(err);
+    });
+}
+</script>
+
+
+
+
 </body>
 
 <div class="mt-5 p-4 bg-dark text-white text-center">
